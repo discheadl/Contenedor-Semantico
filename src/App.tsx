@@ -41,11 +41,8 @@ function normalize(text: string) {
 }
 
 function App() {
-  const [products, setProducts] = useState<Product[]>(() => initialProducts)
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  const [price, setPrice] = useState('')
-  const [categoriesText, setCategoriesText] = useState('')
+  const [products] = useState<Product[]>(() => initialProducts)
+
   const [search, setSearch] = useState('')
 
   const allCategories = useMemo(
