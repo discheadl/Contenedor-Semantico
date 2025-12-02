@@ -77,37 +77,6 @@ function App() {
     })
   }, [products, search])
 
-  function handleAddProduct(event: React.FormEvent) {
-    event.preventDefault()
-
-    const trimmedName = name.trim()
-    if (!trimmedName) return
-
-    const categories = Array.from(
-      new Set(
-        categoriesText
-          .split(',')
-          .map((c) => c.trim())
-          .filter(Boolean),
-      ),
-    )
-
-    const numericPrice = price ? Number(price) : undefined
-
-    const newProduct: Product = {
-      id: Date.now(),
-      name: trimmedName,
-      description: description.trim(),
-      price: Number.isFinite(numericPrice!) ? numericPrice : undefined,
-      categories,
-    }
-
-    setProducts((current) => [newProduct, ...current])
-    setName('')
-    setDescription('')
-    setPrice('')
-    setCategoriesText('')
-  }
 
   function handleCategoryClick(category: string) {
     setSearch(category)
